@@ -90,6 +90,11 @@ require "logstash/json"
 # Improvements TODO list:
 # * Refactor common code between Google BQ and GCS plugins.
 # * Turn Google API code into a Plugin Mixin (like AwsConfig).
+
+# Disabling SSL Verification
+require 'openssl'
+OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+
 class LogStash::Outputs::GoogleBigQuery < LogStash::Outputs::Base
   config_name "google_bigquery"
 
